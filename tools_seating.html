@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capgemini Seat Flow - Seat Plan</title>
+    <link rel="stylesheet" href="style1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="seatplan-container">
+        <header class="dashboard-header">
+            <div class="brand-header">
+                <div class="capgemini-logo">
+                    <h1>Capgemini</h1>
+                    <span>Office Seat Plan</span>
+                </div>
+            </div>
+            <div class="user-info">
+                <span id="welcomeUser">Welcome, Employee</span>
+                <button onclick="goToDashboard()" class="back-btn">← Dashboard</button>
+            </div>
+        </header>
+        
+        <main class="seatplan-main">
+            <div class="seatplan-header">
+                <h2>Office Layout Reference</h2>
+                <p>Static view of the office seating arrangement by departments</p>
+            </div>
+            
+            <div class="legend-large">
+                <div class="legend-item">
+                    <div class="legend-color dcc"></div>
+                    <span>DCC Department</span>
+                    <small>(Seats 23-26)</small>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color bread"></div>
+                    <span>BREAD Department</span>
+                    <small>(Seats 27-29, 38-43)</small>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color solutions"></div>
+                    <span>Solutions Department</span>
+                    <small>(Seats 30-37)</small>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color cap360"></div>
+                    <span>Cap360 Department</span>
+                    <small>(Seats 44-47)</small>
+                </div>
+            </div>
+            
+            <div class="static-seat-grid">
+                <!-- Row 1: Seats 23-29 -->
+                <div class="seat-row">
+                    <div class="seat dcc-dept">23<br><small>DCC</small></div>
+                    <div class="seat dcc-dept">24<br><small>DCC</small></div>
+                    <div class="seat dcc-dept">25<br><small>DCC</small></div>
+                    <div class="seat dcc-dept">26<br><small>DCC</small></div>
+                    <div class="seat bread-dept">27<br><small>BREAD</small></div>
+                    <div class="seat bread-dept">28<br><small>BREAD</small></div>
+                    <div class="seat bread-dept">29<br><small>BREAD</small></div>
+                </div>
+                
+                <!-- Row 2: Seats 30-36 -->
+                <div class="seat-row">
+                    <div class="seat solutions-dept">30<br><small>Solutions</small></div>
+                    <div class="seat solutions-dept">31<br><small>Solutions</small></div>
+                    <div class="seat solutions-dept">32<br><small>Solutions</small></div>
+                    <div class="seat solutions-dept">33<br><small>Solutions</small></div>
+                    <div class="seat solutions-dept">34<br><small>Solutions</small></div>
+                    <div class="seat solutions-dept">35<br><small>Solutions</small></div>
+                    <div class="seat solutions-dept">36<br><small>Solutions</small></div>
+                </div>
+                
+                <!-- Row 3: Seats 37-43 -->
+                <div class="seat-row">
+                    <div class="seat solutions-dept">37<br><small>Solutions</small></div>
+                    <div class="seat bread-dept">38<br><small>BREAD</small></div>
+                    <div class="seat bread-dept">39<br><small>BREAD</small></div>
+                    <div class="seat bread-dept">40<br><small>BREAD</small></div>
+                    <div class="seat bread-dept">41<br><small>BREAD</small></div>
+                    <div class="seat bread-dept">42<br><small>BREAD</small></div>
+                    <div class="seat bread-dept">43<br><small>BREAD</small></div>
+                </div>
+                
+                <!-- Row 4: Seats 44-47 -->
+                <div class="seat-row">
+                    <div class="seat cap360-dept">44<br><small>Cap360</small></div>
+                    <div class="seat cap360-dept">45<br><small>Cap360</small></div>
+                    <div class="seat cap360-dept">46<br><small>Cap360</small></div>
+                    <div class="seat cap360-dept">47<br><small>Cap360</small></div>
+                    <div class="empty-space"></div>
+                    <div class="empty-space"></div>
+                    <div class="empty-space"></div>
+                </div>
+            </div>
+            
+            <div class="seatplan-footer">
+                <div class="action-buttons">
+                    <button onclick="goToSeating()" class="action-btn primary">
+                        <span>🪑 Book a Seat</span>
+                    </button>
+                    
+                    <button onclick="goToBookings()" class="action-btn secondary">
+                        <span>📚 View My Bookings</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        // Set welcome message
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (currentUser) {
+            document.getElementById('welcomeUser').textContent = `Welcome, ${currentUser.name}`;
+        }
+        
+        function goToDashboard() {
+            window.location.href = 'dashboard.html';
+        }
+        
+        function goToSeating() {
+            window.location.href = 'seating.html';
+        }
+        
+        function goToBookings() {
+            window.location.href = 'booked.html';
+        }
+    </script>
+</body>
+</html>
